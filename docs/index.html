@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SmartTask</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root{
+        --space: 8px;
+        --radius: 14px;
+        --card-radius: 16px;
+        --glass: rgba(255,255,255,0.66);
+        --glass-2: rgba(255,255,255,0.5);
+        --glass-shadow: 0 8px 28px rgba(12,18,22,0.06);
+        --card-border: 1px solid rgba(15,23,42,0.04);
+        --accent: #7dd3fc; /* frosted sky */
+        --accent-2: #fbcfe8; /* soft pearl */
+        --accent-gradient: linear-gradient(90deg,var(--accent),var(--accent-2));
+        --muted: #64748b;
+        --bg-grad: linear-gradient(180deg,#f8fafc 0%,#eef7fb 100%);
+        --text: #0f172a;
+      }
+
+      html, body, #root { height: 100%; }
+
+      body { margin: 0; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: var(--bg-grad); color: var(--text); transition: background .25s ease, color .25s ease; }
+
+      /* Dark theme: force a solid dark background so the whole viewport is dark */
+      body[data-theme='dark']{
+        --glass: rgba(12,18,24,0.5);
+        --glass-2: rgba(12,18,24,0.7);
+        --bg-grad: linear-gradient(180deg,#071022 0%, #041025 100%);
+        background: #041025;
+        --text: #e6eef8;
+        --muted: #9aa7bb;
+        --accent: #7dd3fc;
+      }
+
+      #root { min-height: 100vh; }
+      input, select, button { font: inherit; }
+      .glass { background: var(--glass); backdrop-filter: blur(8px); border-radius: var(--radius); }
+      .soft-transition { transition: all 220ms cubic-bezier(.2,.9,.2,1); }
+
+      /* Respect reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .soft-transition, * { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+      }
+      /* Visible focus for keyboard users */
+      :focus-visible { outline: none; box-shadow: 0 6px 18px rgba(12,18,22,0.08), 0 0 0 4px rgba(125,211,252,0.12); border-radius: 8px; }
+    </style>
+    <script type="module" crossorigin src="/assets/index-Cg8I5wD_.js"></script>
+  </head>
+  <body>
+    <!-- Diagnostic banner removed for production UI (was: "INDEX.HTML LOADED") -->
+    <!-- Display runtime JS errors on the page to help debugging when DevTools isn't open -->
+    <div id="__error_banner__" style="position:fixed;bottom:12px;left:12px;right:12px;background:#b71c1c;color:#fff;padding:10px;border-radius:6px;z-index:9999;display:none;white-space:pre-wrap;max-height:40vh;overflow:auto;font-family:monospace"></div>
+    <script>
+      // Show JS runtime errors and unhandled promise rejections in a visible banner
+      function showError(msg){
+        const el = document.getElementById('__error_banner__');
+        el.textContent = msg;
+        el.style.display = 'block';
+      }
+      window.addEventListener('error', function(e){
+        showError('Error: ' + (e.message || e.error || 'unknown'));
+      });
+      window.addEventListener('unhandledrejection', function(e){
+        showError('Unhandled Rejection: ' + (e.reason && e.reason.message ? e.reason.message : JSON.stringify(e.reason)));
+      });
+      // diagnostic script loaded
+    </script>
+    <div id="root"></div>
+  </body>
+</html>
